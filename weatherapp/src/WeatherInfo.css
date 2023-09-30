@@ -52,3 +52,9 @@
 .WeatherInfo .SunRelatedTimes {
   font-size: 13px;
 }
+
+.WeatherInfo .icon {
+  position: relative;
+  top: 18px;
+  padding-right: 10px;
+}

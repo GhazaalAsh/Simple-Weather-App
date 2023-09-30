@@ -2,6 +2,7 @@ import React from "react";
 import FormattedDate from "./FormattedDate";
 import SunRelatedTimes from "./SunRelatedTimes";
 import "./WeatherInfo.css";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherInfo(props) {
   function calculateWindDegree(windDegree) {
@@ -27,7 +28,9 @@ export default function WeatherInfo(props) {
     <div className="WeatherInfo">
       <div className="row">
         <div className="col-5 MainTemperature">
-          <img src={props.info.icon} alt={props.info.description} />
+          <span className="icon">
+            <WeatherIcon code={props.info.icon} />
+          </span>
           <span className="tempNumb">{Math.round(props.info.temperature)}</span>
           <span className="unit">
             <a href="./">°C</a>
