@@ -3,6 +3,7 @@ import FormattedDate from "./FormattedDate";
 import SunRelatedTimes from "./SunRelatedTimes";
 import "./WeatherInfo.css";
 import WeatherIcon from "./WeatherIcon";
+import WeatherUnit from "./WeatherUnit";
 
 export default function WeatherInfo(props) {
   function calculateWindDegree(windDegree) {
@@ -31,12 +32,7 @@ export default function WeatherInfo(props) {
           <span className="icon">
             <WeatherIcon code={props.info.icon} />
           </span>
-          <span className="tempNumb">{Math.round(props.info.temperature)}</span>
-          <span className="unit">
-            <a href="./">°C</a>
-            <span className="colorChange">|</span>
-            <a href="./">°F</a>
-          </span>
+          <WeatherUnit celsius={props.info.temperature} />
         </div>
         <div className="col-3 handleSpace">
           {" "}
