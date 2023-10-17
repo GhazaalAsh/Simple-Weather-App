@@ -2,7 +2,6 @@ import React from "react";
 import FormattedDate from "./FormattedDate";
 import SunRelatedTimes from "./SunRelatedTimes";
 import "./WeatherInfo.css";
-import WeatherIcon from "./WeatherIcon";
 import WeatherUnit from "./WeatherUnit";
 
 export default function WeatherInfo(props) {
@@ -29,10 +28,13 @@ export default function WeatherInfo(props) {
     <div className="WeatherInfo">
       <div className="row">
         <div className="col-5 MainTemperature">
-          <span className="icon">
-            <WeatherIcon code={props.info.icon} />
-          </span>
-          <WeatherUnit celsius={props.info.temperature} />
+          <WeatherUnit
+            celsius={props.info.temperature}
+            feels={props.info.feelsLike}
+            mintemp={props.info.mintemperature}
+            maxtemp={props.info.maxtemperature}
+            code={props.info.icon}
+          />
         </div>
         <div className="col-3 handleSpace">
           {" "}
@@ -50,6 +52,7 @@ export default function WeatherInfo(props) {
               </span>
             </li>
           </ul>
+          <div className="pressure">Pressure: {props.info.pressure} mb</div>
         </div>
         <div className="col-4 handleSpace">
           <ul>
@@ -66,21 +69,6 @@ export default function WeatherInfo(props) {
               Sunset: <SunRelatedTimes Time={props.info.sunset} />
             </li>
           </ul>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-4">
-          {" "}
-          <ul>
-            <li>L: {Math.round(props.info.mintemperature)} °C</li>
-            <li>H: {Math.round(props.info.maxtemperature)} °C</li>
-          </ul>
-        </div>
-        <div className="col-4 handleSpace">
-          Feels Like {Math.round(props.info.feelsLike)} °C
-        </div>
-        <div className="col-4 handleSpace">
-          Pressure: {props.info.pressure} mb
         </div>
       </div>
     </div>

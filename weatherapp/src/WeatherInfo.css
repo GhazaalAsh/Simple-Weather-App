@@ -58,3 +58,11 @@
   top: 18px;
   padding-right: 10px;
 }
+
+.WeatherInfo .otherTemperatures {
+  padding-top: 20px;
+}
+
+.WeatherInfo .pressure {
+  padding-top: 35px;
+}
