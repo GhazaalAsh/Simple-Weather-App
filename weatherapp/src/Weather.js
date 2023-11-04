@@ -11,7 +11,24 @@ export default function Weather(props) {
     let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayWeather);
-    console.log(apiUrl);
+  }
+  function changeToParis(event) {
+    event.preventDefault();
+    let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=paris&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayWeather);
+  }
+  function changeToLondon(event) {
+    event.preventDefault();
+    let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=london&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayWeather);
+  }
+  function changeToNewYork(event) {
+    event.preventDefault();
+    let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=new york&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayWeather);
   }
   function displayWeather(response) {
     setWeather({
@@ -70,13 +87,19 @@ export default function Weather(props) {
     <div className="header">
       <div className="row">
         <div className="col-2">
-          <a href="./">Paris</a>
+          <a href="./" onClick={changeToParis}>
+            Paris
+          </a>
         </div>
         <div className="col-2">
-          <a href="./">London</a>
+          <a href="./" onClick={changeToLondon}>
+            London
+          </a>
         </div>
         <div className="col-2">
-          <a href="./">New York</a>
+          <a href="./" onClick={changeToNewYork}>
+            New York
+          </a>
         </div>
       </div>
     </div>
